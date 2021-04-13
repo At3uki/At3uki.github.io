@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Keep Team">
+    <meta name="author" content="Atsuki">
     
     <title>
         
-            test |
+            关于hexo d因网络问题无法部署 |
         
-        Keep Theme
+        Atsuki&#39;s Blog
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
@@ -23,7 +23,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"at3uki.github.io","root":"/","language":"zh-Hans"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.2"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/touxiang.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"层楼终究误少年"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.2"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -31,6 +31,8 @@
 
 <body>
 <div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
     
 
     
@@ -49,7 +51,7 @@
     <div class="header-content">
         <div class="left">
             <a class="logo-title" href="/">
-                Keep Theme
+                Atsuki&#39;s Blog
             </a>
         </div>
 
@@ -61,7 +63,7 @@
                             <a class=""
                                href="/"
                             >
-                                首页
+                                HOME
                             </a>
                         </li>
                     
@@ -69,7 +71,7 @@
                             <a class=""
                                href="/archives"
                             >
-                                归档
+                                ARCHIVES
                             </a>
                         </li>
                     
@@ -90,12 +92,12 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/">首页</a>
+                       href="/">HOME</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/archives">归档</a>
+                       href="/archives">ARCHIVES</a>
                 </li>
             
         </ul>
@@ -117,17 +119,17 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">test</span>
+            <span class="title-hover-animation">关于hexo d因网络问题无法部署</span>
         </div>
 
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="/images/touxiang.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
-                        <span class="name">Keep Team</span>
+                        <span class="name">Atsuki</span>
                         
                             <span class="author-label">Lv1</span>
                         
@@ -135,20 +137,9 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-04-13 16:51:56
+        <i class="fas fa-edit"></i>&nbsp;2021-04-13 19:37:34
     </span>
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E4%B8%8D%E7%9F%A5%E9%81%93%E9%95%BF%E5%95%A5%E6%A0%B7/">不知道长啥样</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
@@ -163,7 +154,12 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="搭博客真烦啊"><a href="#搭博客真烦啊" class="headerlink" title="搭博客真烦啊"></a>搭博客真烦啊</h2><hr>
+            <h3 id="hexo-d部署报错："><a href="#hexo-d部署报错：" class="headerlink" title="hexo d部署报错："></a>hexo d部署报错：</h3><p>‘unable to access ‘<a class="link"   target="_blank" rel="noopener" href="https://github.com/yourname/yourname.github.io.git/&#39;" >https://github.com/yourname/yourname.github.io.git/&#39;<i class="fas fa-external-link-alt"></i></a>: Failed to connect to github.com port 443:Operation timed out<br>FATAL{<br>  err: Error: Spawn failed’<br>![](/Users/atsuki/Pictures/hexo d error.png)<br>知道是网络不好，但是一直没办法。443是https的端口，我们知道可以通过两种方式链接github，https和git。</p>
+<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;" >&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
+<p>然后在hexo d的时候就出现了上面的报错。这个问题困扰了我好久。一直到我验证了一下ssh链接<br>‘$ ssh -T <a class="link"   href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;" >&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;<i class="fas fa-external-link-alt"></i></a>‘<br>然后出现了如下事件<br><img src="/Users/atsuki/Pictures/sshport.png"><br>当显示”Hi XXX!You’ve successdfully authenticated…”说明连接成功。</p>
+<p>之后我的hexo d就部署成功了！<br>当我重新hexo d时又报错443端口有问题。我再次验证ssh链接时又要我重新确认链接。也就是说我每次部署都得链<br>接ssh…<br>让我疑惑的是为什么ssh连接解决了https链接的问题<br>哎，我是搞不明白了，但总之这个问题是解决了。<br>然后我迎来了我的第二个问题</p>
+<hr>
+<h3 id="hexo-d部署成功-但是网页没有改变"><a href="#hexo-d部署成功-但是网页没有改变" class="headerlink" title="hexo d部署成功 但是网页没有改变"></a>hexo d部署成功 但是网页没有改变</h3><p>这个是因为github仓库里有两个分支。一个是创建仓库自带的main，一个是我创建的master，我的代码都在master里，但是github网页的source默认是main。<br><strong>解决方法：</strong>仓库<strong>Settings</strong> ——&gt; <strong>Pages</strong> ——&gt; <strong>Source</strong> <strong>Branch</strong>选为<strong>master</strong>  就OK了</p>
 
         </div>
 
@@ -180,7 +176,7 @@
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">Hello World</span>
-                                <span class="post-nav-item">下一篇</span>
+                                <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -209,11 +205,11 @@
             
               <span>2020</span>&nbsp;-&nbsp;
             
-            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Atsuki</a>
         </div>
         
         <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.2</a>
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.2</a>
         </div>
         
     </div>
@@ -227,6 +223,10 @@
             <div class="post-tools-container">
     <ul class="tools-list">
         <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
         
 
         <!-- go comment -->
@@ -281,6 +281,14 @@
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d%E9%83%A8%E7%BD%B2%E6%8A%A5%E9%94%99%EF%BC%9A"><span class="nav-text">hexo d部署报错：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F-%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%B2%A1%E6%9C%89%E6%94%B9%E5%8F%98"><span class="nav-text">hexo d部署成功 但是网页没有改变</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -308,10 +316,22 @@
 
 
 
+    
+<script src="/js/code-copy.js"></script>
+
+
 
 
 
 <div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
 
