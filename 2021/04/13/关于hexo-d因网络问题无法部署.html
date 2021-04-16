@@ -156,10 +156,11 @@
         <div class="article-content markdown-body">
             <h3 id="hexo-d部署报错："><a href="#hexo-d部署报错：" class="headerlink" title="hexo d部署报错："></a>hexo d部署报错：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unable to access <span class="string">&#x27;https://github.com/yourname/yourname.github.io.git/&#x27;</span>: Failed to connect to github.com port 443:Operation timed out</span><br><span class="line">FATAL&#123;</span><br><span class="line">  err: Error: Spawn failed</span><br></pre></td></tr></table></figure>
 
-<p><strong>解决方法：</strong>检查ssh连接是否接通</p>
+<p><strong>解决方法：</strong>第一、搭梯子；没梯子可以试试  第二、检查ssh连接是否接通</p>
 <p>复盘一下过程：</p>
-<p><img src="/images/%E5%85%B3%E4%BA%8Ehexo-d%E5%9B%A0%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2/hexo%20d%20error.png"><br>知道是网络不好，但是一直没办法。443是https的端口，我们知道可以通过两种方式链接github，https和git。</p>
-<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;" >&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
+<p><img src="/images/%E5%85%B3%E4%BA%8Ehexo-d%E5%9B%A0%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2/hexo%20d%20error.png"><br>知道是网络不好，但是一直没办法（后来我发现是我梯子没弄好，但是在没梯子的情况下我是怎么部署成功的呢？以下是我的过程，可能具有偶然性，但这个过程过于艰辛，我必须记录一下。</p>
+<p>443是https的端口，我们知道可以通过两种方式链接github，https和git。</p>
+<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;" >&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
 <p>然后在hexo d的时候就出现了上面的报错。这个问题困扰了我好久。一直到我验证了一下ssh连接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
