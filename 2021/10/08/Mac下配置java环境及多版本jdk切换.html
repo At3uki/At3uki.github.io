@@ -9,7 +9,7 @@
     
     <title>
         
-            关于hexo d因网络问题无法部署 |
+            Mac下配置jdk环境及多版本jdk切换 |
         
         Atsuki&#39;s Blog
     </title>
@@ -119,7 +119,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">关于hexo d因网络问题无法部署</span>
+            <span class="title-hover-animation">Mac下配置jdk环境及多版本jdk切换</span>
         </div>
 
         
@@ -137,7 +137,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-04-13 19:37:34
+        <i class="fas fa-edit"></i>&nbsp;2021-10-08 09:10:20
     </span>
     
     
@@ -154,20 +154,30 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="hexo-d部署报错："><a href="#hexo-d部署报错：" class="headerlink" title="hexo d部署报错："></a>hexo d部署报错：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unable to access <span class="string">&#x27;https://github.com/yourname/yourname.github.io.git/&#x27;</span>: Failed to connect to github.com port 443:Operation timed out</span><br><span class="line">FATAL&#123;</span><br><span class="line">  err: Error: Spawn failed</span><br></pre></td></tr></table></figure>
+            <h1 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h1><p>终端输入<code>vim ~/.bash_profile</code>进行环境配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME&#x3D;&#x2F;Library&#x2F;Java&#x2F;JavaVirtualMachines&#x2F;jdk1.8.0_301.jdk&#x2F;Contents&#x2F;Home</span><br><span class="line">PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH:.</span><br><span class="line">CLASSPATH&#x3D;$JAVA_HOME&#x2F;lib&#x2F;tools.jar:$JAVA_HOME&#x2F;lib&#x2F;dt.jar:.</span><br><span class="line">export JAVA_HOME</span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure>
 
-<p><strong>解决方法：</strong>第一、搭梯子；没梯子可以试试  第二、检查ssh连接是否接通</p>
-<p>复盘一下过程：</p>
-<p><img src="/images/%E5%85%B3%E4%BA%8Ehexo-d%E5%9B%A0%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2/hexo%20d%20error.png"><br>知道是网络不好，但是一直没办法（后来我发现是我梯子没弄好，但是在没梯子的情况下我是怎么部署成功的呢？以下是我的过程，可能具有偶然性，但这个过程过于艰辛，我必须记录一下。</p>
-<p>443是https的端口，我们知道可以通过两种方式链接github，https和git。</p>
-<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;" >&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
-<p>然后在hexo d的时候就出现了上面的报错。这个问题困扰了我好久。一直到我验证了一下ssh连接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>退出后，输入<code>source .bash_profile</code>使配置生效</p>
+<p>终端输入<code>echo $JAVA_HOME</code>,可以看到配置的java环境</p>
+<p>输入<code>java -version</code></p>
+<p><img src="../images/Mac%E4%B8%8B%E9%85%8D%E7%BD%AEjava%E7%8E%AF%E5%A2%83/iShot2021-10-08%2012.13.20.png" alt="iShot2021-10-08 12.13.20"></p>
+<p>出现这样的显示就是成功了</p>
+<h1 id="多版本jdk切换"><a href="#多版本jdk切换" class="headerlink" title="多版本jdk切换"></a>多版本jdk切换</h1><p>编辑~/.bash_profile文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#1.一定先把JAVA_HOME 清空</span><br><span class="line">unset JAVA_HOME</span><br><span class="line"> </span><br><span class="line">#设置已经安装的版本，可以通过&#x2F;usr&#x2F;libexec&#x2F;java_home -V查看</span><br><span class="line">export JAVA_6_HOME&#x3D;$(&#x2F;usr&#x2F;libexec&#x2F;java_home -v1.6) </span><br><span class="line">export JAVA_8_HOME&#x3D;$(&#x2F;usr&#x2F;libexec&#x2F;java_home -v1.8) </span><br><span class="line">export JAVA_16_HOME&#x3D;$(&#x2F;usr&#x2F;libexec&#x2F;java_home -v16)</span><br><span class="line"> </span><br><span class="line">#设置临时切换jdk版本命令</span><br><span class="line">alias jdk6&#x3D;&quot;export JAVA_HOME&#x3D;$JAVA_6_HOME&quot; </span><br><span class="line">alias jdk8&#x3D;&quot;export JAVA_HOME&#x3D;$JAVA_8_HOME&quot; </span><br><span class="line">alias jdk16&#x3D;&quot;export JAVA_HOME&#x3D;$JAVA_16_HOME&quot;</span><br><span class="line"> </span><br><span class="line">#2.最后设置默认版本 finally set JAVA_HOME </span><br><span class="line">export JAVA_HOME&#x3D;$(&#x2F;usr&#x2F;libexec&#x2F;java_home -v1.8)</span><br><span class="line">#等价于export JAVA_HOME&#x3D;$JAVA_8_HOME</span><br><span class="line"> </span><br><span class="line">#把JAVA_HOME加入到path</span><br><span class="line">export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;bin</span><br></pre></td></tr></table></figure>
 
-<p>然后出现了如下事件<br><img src="/images/%E5%85%B3%E4%BA%8Ehexo-d%E5%9B%A0%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2/sshport.png"><br>当显示”Hi XXX!You’ve successdfully authenticated…”说明连接成功。</p>
-<p>之后我的hexo d就部署成功了！<br>当我重新hexo d时又报错443端口有问题。我再次验证ssh连接发现是连接掉了，再连上就行了。<strong>另外要注意的是要想连上必须要你的github在网页上是能打开的，最好用梯子</strong><br>让我疑惑的是为什么ssh连接解决了https链接的问题<br>哎，我是搞不明白了，但总之这个问题是解决了。<br>然后我迎来了我的第二个问题</p>
-<hr>
-<h3 id="hexo-d部署成功-但是网页没有改变"><a href="#hexo-d部署成功-但是网页没有改变" class="headerlink" title="hexo d部署成功 但是网页没有改变"></a>hexo d部署成功 但是网页没有改变</h3><p>这个是因为github仓库里有两个分支。一个是创建仓库自带的main，一个是我创建的master，我的代码都在master里，但是github网页的source默认是main。<br><strong>解决方法：</strong>仓库<strong>Settings</strong> ——&gt; <strong>Pages</strong> ——&gt; <strong>Source</strong> <strong>Branch</strong>选为<strong>master</strong>  就OK了</p>
+<p>可以用jdk6/jdk8/jdk16命令切换jdk版本</p>
+<p>或者直接source .bash/profile生效</p>
+<h3 id="卸载jdk"><a href="#卸载jdk" class="headerlink" title="卸载jdk"></a>卸载jdk</h3><p>例如卸载jdk8</p>
+<p><code>sudo rm -rf jdk1.8.0_301.jdk </code> </p>
+<p>参考：<a class="link"   target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html" >https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>/Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/Contents/Home/bin目录下存放JDK用于开发的一些终端命令工具。常见的工具如：</p>
+<p>“javac”的作用是将java源文件编译为class文件(即自解码文件)；</p>
+<p>“java”命令的作用是运行class文件。</p>
+<p>db目录下是java开发的一个开源的关系型数据库；</p>
+<p>include目录下是一些C语言的头文件；</p>
+<p>jre目录下JDK所依赖的java运行时；</p>
+<p>lib目录下存放JDK开发工具所依赖的一些库文件；</p>
+<p>man目录下存放JDK开发工具的说明文档。</p>
 
         </div>
 
@@ -176,21 +186,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
                            href="/2021/04/14/index.html"
                         >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">Hello World</span>
-                                <span class="post-nav-item">Prev posts</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
@@ -292,7 +302,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d%E9%83%A8%E7%BD%B2%E6%8A%A5%E9%94%99%EF%BC%9A"><span class="nav-text">hexo d部署报错：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F-%E4%BD%86%E6%98%AF%E7%BD%91%E9%A1%B5%E6%B2%A1%E6%9C%89%E6%94%B9%E5%8F%98"><span class="nav-text">hexo d部署成功 但是网页没有改变</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E7%89%88%E6%9C%ACjdk%E5%88%87%E6%8D%A2"><span class="nav-text">多版本jdk切换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BDjdk"><span class="nav-text">卸载jdk</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-text">补充</span></a></li></ol>
     </div>
 </div>
         </aside>
