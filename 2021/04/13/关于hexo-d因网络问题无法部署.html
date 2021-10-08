@@ -160,7 +160,7 @@
 <p>复盘一下过程：</p>
 <p><img src="/images/%E5%85%B3%E4%BA%8Ehexo-d%E5%9B%A0%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2/hexo%20d%20error.png"><br>知道是网络不好，但是一直没办法（后来我发现是我梯子没弄好，但是在没梯子的情况下我是怎么部署成功的呢？以下是我的过程，可能具有偶然性，但这个过程过于艰辛，我必须记录一下。</p>
 <p>443是https的端口，我们知道可以通过两种方式链接github，https和git。</p>
-<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;" >&#103;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
+<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;" >&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
 <p>然后在hexo d的时候就出现了上面的报错。这个问题困扰了我好久。一直到我验证了一下ssh连接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
