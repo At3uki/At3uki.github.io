@@ -160,7 +160,7 @@
 <p>复盘一下过程：</p>
 <p><img src="/images/%E5%85%B3%E4%BA%8Ehexo-d%E5%9B%A0%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2/hexo%20d%20error.png"><br>知道是网络不好，但是一直没办法（后来我发现是我梯子没弄好，但是在没梯子的情况下我是怎么部署成功的呢？以下是我的过程，可能具有偶然性，但这个过程过于艰辛，我必须记录一下。</p>
 <p>443是https的端口，我们知道可以通过两种方式链接github，https和git。</p>
-<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;" >&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
+<p>事实上我已经配置了ssh密钥，一开始在_config.yml文件的deploy里写的是<em>repo: <a class="link"   href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#111;&#x6d;" >&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a>:At3uki/At3uki.github.io.git</em>(也就是github的ssh链接）。  但是hexo g的时候就报错了，于是我把repo改成了https链接</p>
 <p>然后在hexo d的时候就出现了上面的报错。这个问题困扰了我好久。一直到我验证了一下ssh连接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
@@ -168,6 +168,15 @@
 <p>之后我的hexo d就部署成功了！<br>当我重新hexo d时又报错443端口有问题。我再次验证ssh连接发现是连接掉了，再连上就行了。<strong>另外要注意的是要想连上必须要你的github在网页上是能打开的，最好用梯子</strong><br>让我疑惑的是为什么ssh连接解决了https链接的问题<br>哎，我是搞不明白了，但总之这个问题是解决了。<br>然后我迎来了我的第二个问题</p>
 <hr>
 <h3 id="hexo-d部署成功-但是网页没有改变"><a href="#hexo-d部署成功-但是网页没有改变" class="headerlink" title="hexo d部署成功 但是网页没有改变"></a>hexo d部署成功 但是网页没有改变</h3><p>这个是因为github仓库里有两个分支。一个是创建仓库自带的main，一个是我创建的master，我的代码都在master里，但是github网页的source默认是main。<br><strong>解决方法：</strong>仓库<strong>Settings</strong> ——&gt; <strong>Pages</strong> ——&gt; <strong>Source</strong> <strong>Branch</strong>选为<strong>master</strong>  就OK了</p>
+<hr>
+<p>2021.10.08</p>
+<p>今天再次hexo d博客发现用这个方法也不行了</p>
+<p>所以我把_config.yml文件中的配置地址修改了</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##找到博客根目录下的_config.yml文件</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"></span><br><span class="line"><span class="attr">repo:</span> <span class="string">https://github.com/yourname/yourname.github.io.git</span> <span class="string">-&gt;(修改为)</span> <span class="string">git@github.com:a956551943/weixiaohui.github.io.git</span></span><br><span class="line"></span><br><span class="line"><span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##最后</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">clean</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">d</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果无法hexo d就验证一下ssh连接</p>
 
         </div>
 
